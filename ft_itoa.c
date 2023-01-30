@@ -14,7 +14,7 @@ int	ft_count(int n)
 	}
 	while (n > 0)
 	{
-		count /= 10;
+		n /= 10;
 		count++;
 	}
 	return (count);
