@@ -1,28 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/30 09:50:08 by rbordin           #+#    #+#             */
+/*   Updated: 2023/01/31 15:55:25 by rbordin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
-int	ft_count(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	count;
-
-	count = 0;
-	if (n < 0)
+	if (n == -2147483648)
 	{
-		n *= -1;
-		count++;
+		write(fd, "-21", 3);
+		ft_putnbr_fd(47483648, fd);
 	}
-	while (n > 0)
+	else if (n < 0)
 	{
-		n /= 10;
-		count++;
+		write(fd, "-", 1);
+		ft_putnbr_fd((-n), fd);
 	}
-	return (count);
-}
-
-void ft_putnbr_fd(int n, int fd)
-{
-	int	i;
-
-	i = ft_count(n);
-	if (fd != -1)
-		write(fd, n, i);
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + 48, fd);
+	}
+	else
+	{
+		ft_putchar_fd(n + 48, fd);
+	}
 }

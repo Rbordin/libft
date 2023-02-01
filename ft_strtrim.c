@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/30 17:07:30 by rbordin           #+#    #+#             */
+/*   Updated: 2023/02/01 13:33:38 by rbordin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,40 +29,31 @@ static int	ft_check(char const c, char const *set)
 	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	int	i;
-	int	j;
-	int	k;
-
+	int		i;
+	int		j;
+	int		k;
+	
+	if (!s1 || !set)
+		return (NULL);
 	k = 0;
 	j = ft_strlen(s1);
 	i = 0;
-	
 	while (s1[k] && ft_check(s1[k], set))
 		k++;
 	while (j > k && ft_check(s1[j - 1], set))
 		j--;
-	res = (char*)malloc(sizeof(*s1) * (j - k + 1));
+	res = (char *)malloc(sizeof(*s1) * (j - k + 1));
 	if (!res)
-		return(NULL);
-	
+		return (NULL);
 	while (k < j)
 	{
 		res[i] = s1[k];
 		i++;
 		k++;
 	}
-
 	res[i] = 0;
 	return (res);
 }
-
-int	main()
-{
-	char const s1[] = "may the force be with you";
-	char const set[] = "c";
-	printf("%s", ft_strtrim(s1, set));
-}
-

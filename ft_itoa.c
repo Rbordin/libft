@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/25 11:47:14 by rbordin           #+#    #+#             */
+/*   Updated: 2023/02/01 15:53:10 by rbordin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-
-int	ft_count(int n)
+int	ft_count(long int n)
 {
-	int	count;
+	long int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n *= -1;
@@ -22,31 +33,28 @@ int	ft_count(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int	j;
-	int	i;
-	j = ft_count(n);
-	i = j;
+	char		*res;
+	int			j;
+	int			a;
+	long int	pd;
 
-	res = (char *)malloc(sizeof (char) * (j + 1));
+	a = -1;
+	pd = (long int)n;
+	j = ft_count(pd);
+	res = (char *)malloc(sizeof(char) * (j + 1));
 	if (!res)
 		return (NULL);
-	while (j > 0)
+	((char *)res)[j--] = '\0';
+	if (n < 0)
 	{
-		if (n > 9)
-		{
-			((char *)res)[j] = (n % 10) + 48;
-			j--;
-		}
-		else
-			((char *)res)[j] = n + 48;
+		pd *= -1;
+		((char *)res)[0] = '-';
+		a = 0;
 	}
-	((char *)res)[i + 1] = '\0';
+	while (j > a)
+	{
+		((char *)res)[j--] = (pd % 10) + 48;
+		pd /= 10;
+	}
 	return (res);
-}
-
-int	main()
-{
-	printf("%s", ft_itoa(4567));
-
 }

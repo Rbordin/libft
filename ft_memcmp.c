@@ -6,7 +6,7 @@
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:36:26 by rbordin           #+#    #+#             */
-/*   Updated: 2023/01/19 19:08:53 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/02/01 10:19:03 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,25 +14,20 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	char *ns1;
-	char *ns2;
+	size_t			i;
+	unsigned char	*ns1;
+	unsigned char	*ns2;
 
 	i = 0;
-	ns1 = ((char *)s1);
-	ns2 = ((char *)s2);
-	while ((ns1[i] != '\0' || ns2[i] != '\0') && i < n)
+	ns1 = ((unsigned char *)s1);
+	ns2 = ((unsigned char *)s2);
+	if (!s1 && !s2)
+		return (0);
+	while (i < n)
 	{
 		if (ns1[i] < ns2[i] || ns1[i] > ns2[i])
 			return (ns1[i] - ns2[i]);
 		i++;
 	}
 	return (0);
-}
-
-int	main()
-{
-	char s1[] = "qwaertyuiop";
-	char s2[] = "qwertyui";
-	printf("%d", ft_memcmp(s1, s2, 5));
 }

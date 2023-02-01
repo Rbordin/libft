@@ -6,10 +6,10 @@
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:45:42 by rbordin           #+#    #+#             */
-/*   Updated: 2023/01/19 16:02:08 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/01/30 16:56:54 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include "libft.h" 
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -25,11 +25,4 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 	}
 	return (NULL);
-}
-
-int main()
-{
-	char *s = "alambicco";
-	char *a = ft_strrchr(s, 'a');
-	printf("%s", a);
 }

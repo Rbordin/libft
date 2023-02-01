@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 17:06:07 by rbordin           #+#    #+#             */
-/*   Updated: 2023/02/01 13:31:31 by rbordin          ###   ########.fr       */
+/*   Created: 2023/01/30 10:45:43 by rbordin           #+#    #+#             */
+/*   Updated: 2023/01/30 14:55:27 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void *content)
 {
-	char	*s3;
-	int		i;
-	int		j;
-	
-	if (!s1 || !s2)
+	t_list	*new_node;
+
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
 		return (NULL);
-	j = 0;
-	i = 0;
-	s3 = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1 * sizeof(char));
-	if (!s3)
-		return (NULL);
-	while (s1[i] != '\0')
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
+}
+void print(t_list *new_node) 
+{
+    t_list *current_node = new_node;
+   	while ( current_node != NULL) 
 	{
-		((char *)s3)[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		((char *)s3)[i] = s2[j];
-		i++;
-		j++;
-	}
-	((char *)s3)[i] = '\0';
-	return (s3);
+        printf("%d ", current_node->content);
+        current_node = current_node->next;
+    }
+}
+int	main()
+{
+	print(ft_lstnew(548));
 }
