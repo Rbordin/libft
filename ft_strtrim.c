@@ -6,7 +6,7 @@
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:07:30 by rbordin           #+#    #+#             */
-/*   Updated: 2023/02/01 13:33:38 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/02/02 12:57:19 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		j;
 	int		k;
-	
+
 	if (!s1 || !set)
 		return (NULL);
 	k = 0;

@@ -6,7 +6,7 @@
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:06:07 by rbordin           #+#    #+#             */
-/*   Updated: 2023/02/01 13:31:31 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/02/02 12:55:35 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*s3;
 	int		i;
 	int		j;
-	
+
 	if (!s1 || !s2)
 		return (NULL);
 	j = 0;
