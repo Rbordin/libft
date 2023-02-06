@@ -6,7 +6,7 @@
 /*   By: rbordin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:29:51 by rbordin           #+#    #+#             */
-/*   Updated: 2023/02/02 13:10:21 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/02/06 11:05:06 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 
 	if (!s1 && len == 0)
 		return ((char *)s2);
-	if (s2 == NULL || *s2 == '\0')
+	if (*s2 == '\0')
 		return ((char *)s1);
 	if (!len)
 		return (0);
